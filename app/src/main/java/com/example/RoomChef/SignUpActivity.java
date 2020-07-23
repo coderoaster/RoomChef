@@ -3,6 +3,7 @@ package com.example.RoomChef;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.text.InputFilter;
 import android.util.Log;
 import android.view.View;
@@ -19,7 +20,7 @@ public class SignUpActivity extends AppCompatActivity {
 
     final static String TAG = "Check";
     TextView tv_sMain, tv_dialog;
-    Button btn_signUp;
+    Button btn_signUp,btn_email;
     EditText edit_email, edit_pw, edit_pwChk, edit_phone;
     CheckBox chb_chk;
     Intent intent;
@@ -35,12 +36,18 @@ public class SignUpActivity extends AppCompatActivity {
 
         tv_sMain = findViewById(R.id.tv_sMain);
         btn_signUp = findViewById(R.id.btn_signUp);
+        btn_email= findViewById(R.id.signUp_email_btn);
         edit_email = findViewById(R.id.signUp_email);
         edit_pw = findViewById(R.id.signUp_pw);
         edit_pwChk = findViewById(R.id.signUp_pwChk);
         edit_phone = findViewById(R.id.signUp_phone);
         chb_chk = findViewById(R.id.chb_chk);
         tv_dialog = findViewById(R.id.tv_dialog);
+        //인터넷 사용권한 허가
+        StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder()
+                .permitDiskReads()
+                .permitDiskWrites()
+                .permitNetwork().build());
 
         edit_email.setFilters(new InputFilter[]{new InputFilter.LengthFilter(30)});
         edit_pw.setFilters(new InputFilter[]{new InputFilter.LengthFilter(12)});
@@ -49,6 +56,9 @@ public class SignUpActivity extends AppCompatActivity {
         tv_sMain.setOnClickListener(onClickListener);
         btn_signUp.setOnClickListener(onClickListener);
         chb_chk.setOnClickListener(onClickListener);
+        btn_email.setOnClickListener(onClickListener);
+
+
     }
     View.OnClickListener onClickListener = new View.OnClickListener() {
         @Override
@@ -115,6 +125,12 @@ public class SignUpActivity extends AppCompatActivity {
                 case R.id.tv_sMain: // 로고를 누르면 첫페이지로
                     intent = new Intent(SignUpActivity.this, LoginActivity.class);
                     startActivity(intent);
+                    break;
+                case R.id.signUp_email_btn:
+
+                    SendMail mailServer = new SendMail();
+                    mailServer.sendSecurityCode(SignUpActivity.this,
+                    edit_email.getText().toString());
                     break;
             }
         }
