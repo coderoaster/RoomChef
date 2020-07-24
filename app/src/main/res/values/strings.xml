@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">TabLayout</string>
+    <string name="app_name">RoomChef</string>
 
     <style name="SplashTheme" parent="AppTheme">
         <!-- Customize your theme here. -->
