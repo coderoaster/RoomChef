@@ -1,7 +1,9 @@
 package com.example.RoomChef;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -51,6 +53,20 @@ public class likelist extends Fragment {
         adapter = new RecipeRecyclerAdapter(list) ;
         recyclerView.setAdapter(adapter) ;
 
+        //어뎁터 안에 만든 리스너를 불러와서 사용한다
+        adapter.setOnItemClickListener(new RecipeRecyclerAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClickListener(View v, int position) {
+                Intent intent = new Intent(mcontext,SelectFood.class);
+                intent.putExtra("seq",list.get(position).getSeq());
+                intent.putExtra("view",list.get(position).getView());
+                startActivity(intent);
+                urlAddr ="http://192.168.0.148:8080/test/viewUpdate.jsp?seq=";
+                urlAddr = urlAddr + list.get(position).getSeq()+"&view="+(Integer.parseInt(list.get(position).getView())+1);
+                Log.v("url",urlAddr);
+                connectionInsertData();
+            }
+        });
 
 
         return rootView;

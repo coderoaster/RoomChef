@@ -3,6 +3,7 @@ package com.example.RoomChef;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -41,6 +42,8 @@ public class ReviewDetail extends AppCompatActivity {
         imageView = findViewById(R.id.img_detail);
         btn_goList = findViewById(R.id.btn_goList);
 
+        btn_goList.setOnClickListener(OnClickListener);
+
         connectGetData();
     }
 
@@ -69,4 +72,16 @@ public class ReviewDetail extends AppCompatActivity {
             e.printStackTrace();
         }
     }
+
+    View.OnClickListener OnClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            switch (view.getId()){
+                case R.id.btn_goList:
+                    finish();
+                    break;
+            }
+
+        }
+    };
 }
