@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
+<LinearLayout
     android:id="@+id/child_fragment3"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="후기 리스트"
-        android:textSize="40dp"
+
+
+    <ListView
+        android:id="@+id/lv_review"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         />
 
-</FrameLayout>
+</LinearLayout>
