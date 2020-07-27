@@ -28,7 +28,6 @@ public class Recipe_list extends Fragment {
     Context mcontext;
     String updateurladdr ;
 
-
     public Recipe_list(){
 
     }

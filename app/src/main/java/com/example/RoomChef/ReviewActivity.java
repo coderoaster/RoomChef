@@ -82,13 +82,13 @@ public class ReviewActivity extends AppCompatActivity {
                     connectionInsertData();
                     Toast.makeText(ReviewActivity.this, email+ "님의 후기가 등록되었습니다.", Toast.LENGTH_LONG).show();
                     intent = new Intent(ReviewActivity.this,MainActivity.class);
-                    startActivity(intent);}
+                    startActivity(intent);
+                    }
                     break;
                 case R.id.btn_cancel:
                     finish();
                     Toast.makeText(ReviewActivity.this, "취소되었습니다.", Toast.LENGTH_LONG).show();
-                    intent = new Intent(ReviewActivity.this,MainActivity.class);
-                    startActivity(intent);
+                    finish();
                     break;
                 case R.id.insert_img1:
                     Intent intent;

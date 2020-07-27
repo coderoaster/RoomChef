@@ -7,6 +7,9 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -41,6 +44,8 @@ public class LoginActivity extends AppCompatActivity {
                     startActivity(intent);
                     break;
                 case R.id.tv_nonUser: // 비회원으로 메인페이지 이동
+                    intent = new Intent(LoginActivity.this,MainActivity.class);
+                    startActivity(intent);
                     break;
             }
 

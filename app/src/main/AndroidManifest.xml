@@ -32,6 +32,7 @@
         <activity android:name="com.example.RoomChef.FindIdActivity" />
         <activity android:name="com.example.RoomChef.SignUpActivity" />
         <activity android:name="com.example.RoomChef.MainActivity"></activity>
+        <activity android:name=".UserInfoUpdate"></activity>
     </application>
 
 </manifest>
