@@ -27,6 +27,7 @@
         <activity android:name="com.example.RoomChef.SelectFood" />
         <activity android:name="com.example.RoomChef.LoginActivity"></activity>
         <activity android:name="com.example.RoomChef.EmailLoginActivity" />
+        <activity android:name=".ReviewActivity"/>
         <activity android:name=".ReviewDetail"/>
         <activity android:name="com.example.RoomChef.FindIdActivity" />
         <activity android:name="com.example.RoomChef.SignUpActivity" />
