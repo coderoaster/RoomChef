@@ -70,7 +70,7 @@ public class Mypage extends Fragment {
                     btn_1.setTextColor(Color.parseColor("#000000"));
                     btn_2.setTextColor(Color.parseColor("#000000"));
                     // getActivity()로 MainActivity의 replaceFragment를 불러옵니다.
-                    ((MainActivity) getActivity()).replaceFragment(reviewlist.newInstance());    // 새로 불러올 Fragment의 Instance를 Main으로 전달
+                    ((MainActivity) getActivity()).replaceFragment(ReviewListFragment.newInstance());    // 새로 불러올 Fragment의 Instance를 Main으로 전달
                     break;
             }
         }

@@ -10,6 +10,8 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.bumptech.glide.Glide;
+
 import java.util.ArrayList;
 
 public class ReviewDetail extends AppCompatActivity {
@@ -57,6 +59,8 @@ public class ReviewDetail extends AppCompatActivity {
             data = (ArrayList<Review>) obj;
             String title = data.get(0).getTitle();
             String review = data.get(0).getContent();
+            imgurlAddr = imgurlAddr+ data.get(0).getImage();
+            Glide.with(ReviewDetail.this).load(imgurlAddr).into(imageView);
             title_detail.setText(title);
             review_detail.setText(review);
 
