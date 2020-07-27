@@ -34,7 +34,7 @@ public class ReviewActivity extends AppCompatActivity {
     String urlAddr;
     String image1, review, title;
     Intent intent;
-    String rcpseq = "1";
+    String rcpseq;
 
 
     @Override
@@ -49,6 +49,9 @@ public class ReviewActivity extends AppCompatActivity {
         tv_image = findViewById(R.id.select_insert_img);
         ed_title = findViewById(R.id.ed_title);
         ed_title.setFilters(new InputFilter[]{new InputFilter.LengthFilter(15) });
+
+        Intent intent = getIntent();
+        rcpseq = intent.getStringExtra("seq");
 
 
 
@@ -87,8 +90,8 @@ public class ReviewActivity extends AppCompatActivity {
                 case R.id.btn_cancel:
                     finish();
                     Toast.makeText(ReviewActivity.this, "취소되었습니다.", Toast.LENGTH_LONG).show();
-                    intent = new Intent(ReviewActivity.this,MainActivity.class);
-                    startActivity(intent);
+//                    intent = new Intent(ReviewActivity.this,MainActivity.class);
+//                    startActivity(intent);
                     break;
                 case R.id.insert_img1:
                     Intent intent;

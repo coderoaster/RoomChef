@@ -16,7 +16,7 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
         <activity
-            android:name="com.example.RoomChef.SplashScreenActivity"
+            android:name=".SplashScreenActivity"
             android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,14 +24,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.example.RoomChef.SelectFood" />
-        <activity android:name="com.example.RoomChef.LoginActivity"></activity>
-        <activity android:name="com.example.RoomChef.EmailLoginActivity" />
-        <activity android:name=".ReviewActivity"/>
-        <activity android:name=".ReviewDetail"/>
-        <activity android:name="com.example.RoomChef.FindIdActivity" />
-        <activity android:name="com.example.RoomChef.SignUpActivity" />
-        <activity android:name="com.example.RoomChef.MainActivity"></activity>
+        <activity android:name=".SelectFood" />
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".EmailLoginActivity" />
+        <activity android:name=".ReviewActivity" />
+        <activity android:name=".ReviewDetail" />
+        <activity android:name=".FindIdActivity" />
+        <activity android:name=".SignUpActivity" />
+        <activity android:name=".MainActivity" />
     </application>
 
 </manifest>
