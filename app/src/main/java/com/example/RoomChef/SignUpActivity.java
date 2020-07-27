@@ -1,6 +1,5 @@
 package com.example.RoomChef;
 
-import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,18 +7,14 @@ import android.os.StrictMode;
 import android.text.InputFilter;
 import android.util.Log;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-
-import java.util.Random;
 
 public class SignUpActivity extends AppCompatActivity {
 
@@ -29,11 +24,9 @@ public class SignUpActivity extends AppCompatActivity {
     EditText edit_email, edit_pw, edit_pwChk, edit_phone;
     CheckBox chb_chk;
     Intent intent;
-    String email, pw, pw_chk, phone, urlAddr,num;
-    private String centIP = RecipeData.CENIP;
+    String email, pw, pw_chk, phone, urlAddr;
+    String centIP = "192.168.0.148";
     int count = 0;
-    Random rnd;
-
 
 
     @Override
@@ -50,12 +43,6 @@ public class SignUpActivity extends AppCompatActivity {
         edit_phone = findViewById(R.id.signUp_phone);
         chb_chk = findViewById(R.id.chb_chk);
         tv_dialog = findViewById(R.id.tv_dialog);
-
-
-        edit_pw.setEnabled(false);
-        edit_pwChk.setEnabled(false);
-        edit_phone.setEnabled(false);
-
         //인터넷 사용권한 허가
         StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder()
                 .permitDiskReads()
@@ -70,7 +57,6 @@ public class SignUpActivity extends AppCompatActivity {
         btn_signUp.setOnClickListener(onClickListener);
         chb_chk.setOnClickListener(onClickListener);
         btn_email.setOnClickListener(onClickListener);
-
 
 
     }
@@ -141,44 +127,11 @@ public class SignUpActivity extends AppCompatActivity {
                     startActivity(intent);
                     break;
                 case R.id.signUp_email_btn:
-                    rnd = new Random();
-                    num= String.valueOf(rnd.nextInt(1000));
-                    SendMail mailServer = new SendMail();
-                    mailServer.sendSecurityCode(SignUpActivity.this,"인증번호입니다.\n"+num ,edit_email.getText().toString());
-                    final LinearLayout linear = (LinearLayout) View.inflate(SignUpActivity.this, R.layout.jhj_custom_dialog, null);
-                    new AlertDialog.Builder(SignUpActivity.this)
-                            .setTitle("이메일 본인인증")
-                            .setView(linear)
-                            .setIcon(R.mipmap.ic_launcher)
-                            .setCancelable(false)
-                            .setPositiveButton("확인", new DialogInterface.OnClickListener() { // 확인누르면 첫페이지로 로그인하러
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    EditText editText = linear.findViewById(R.id.Custom_btn_email);
-                                    if (num.equals(editText.getText().toString())){
-                                        Toast.makeText(SignUpActivity.this,"인증완료",Toast.LENGTH_SHORT).show();
-                                        edit_email.setEnabled(false);
-                                        edit_pw.setEnabled(true);
-                                        edit_pwChk.setEnabled(true);
-                                        edit_phone.setEnabled(true);
-                                        tv_dialog.setText("이메일 인증완료.");
-                                    }else {
-                                        Toast.makeText(SignUpActivity.this,"인증실패",Toast.LENGTH_SHORT).show();
-                                        tv_dialog.setText("이메일 인증실패.");
-                                     }
-                                    dialog.dismiss();
-                                }
-                            })
-                            .setNegativeButton("취소", new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialogInterface, int i) {
-                                    Toast.makeText(SignUpActivity.this,"인증취소",Toast.LENGTH_SHORT).show();
-                                    dialogInterface.dismiss();
-                                }
-                            })
-                            .show();
-                    break;
 
+                    SendMail mailServer = new SendMail();
+                    mailServer.sendSecurityCode(SignUpActivity.this,
+                    edit_email.getText().toString());
+                    break;
             }
         }
 
@@ -242,5 +195,5 @@ public class SignUpActivity extends AppCompatActivity {
             return count; // 이메일이 존재하면 1 없으면 0
         }
 
-} //--------------------
 
+} //--------------------

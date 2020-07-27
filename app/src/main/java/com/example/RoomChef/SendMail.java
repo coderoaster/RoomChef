@@ -15,10 +15,10 @@ public class SendMail extends AppCompatActivity {
     // 보내는 계정의 pw
     String password = "dek147305!";
 
-    public void sendSecurityCode(Context context,String content ,String sendTo) {
+    public void sendSecurityCode(Context context, String sendTo) {
         try {
             GMailSender gMailSender = new GMailSender(user, password);
-            gMailSender.sendMail("방구석 쉐프 인증번호 입니다.\n인증번호를 확인해주세요.", content, sendTo);
+            gMailSender.sendMail("제목입니다", "내용입니다", sendTo);
 
             Toast.makeText(context, "이메일을 성공적으로 보냈습니다.", Toast.LENGTH_SHORT).show();
         } catch (SendFailedException e) {

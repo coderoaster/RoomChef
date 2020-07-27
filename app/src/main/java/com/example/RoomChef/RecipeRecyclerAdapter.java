@@ -24,7 +24,7 @@ public class RecipeRecyclerAdapter extends RecyclerView.Adapter<RecipeRecyclerAd
     private ArrayList<RecipeData> mData = null ;
     private RequestManager manager;
     private String urlAddr;
-    private String centIP = RecipeData.CENIP;
+    private String centIP = "192.168.0.148";
     private String user_email = RecipeData.USERID;
     private String recipeSeq ="2";
     private String liked;

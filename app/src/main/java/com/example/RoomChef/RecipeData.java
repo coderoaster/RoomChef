@@ -3,7 +3,6 @@ package com.example.RoomChef;
 public class RecipeData {
     protected static String SEARCH=null;
     protected static String USERID=null;
-    protected static final String CENIP="192.168.0.148";
     private String name;
     private String imgurl;
     private String seq;

@@ -30,7 +30,7 @@ public class ingredientFragment extends Fragment {
     String name, date;
     EditText ed_name, ed_date;
     Button btn_add;
-    private String centIP = RecipeData.CENIP;
+    String centIP = "192.168.0.148";
     String urlAddr;
     String email = RecipeData.USERID;
     InputMethodManager mimm;

@@ -4,7 +4,6 @@ import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -23,7 +22,7 @@ public class JHJ_CustomDialog extends Dialog {
     String name;
     String date;
 
-    public JHJ_CustomDialog(@NonNull Context context, CustomDialogClickListener customDialogClickListener) {
+    public JHJ_CustomDialog(@NonNull Context context, String name, String date, CustomDialogClickListener customDialogClickListener) {
         super(context);
         this.mContext = context;
         this.customDialogClickListener = customDialogClickListener;
@@ -35,21 +34,25 @@ public class JHJ_CustomDialog extends Dialog {
         setContentView(R.layout.jhj_custom_dialog);
 
         // Custom ClickEvent 사용 -------------------------------------------------------------------
-//        findViewById(R.id.jhj_Custom_Dialog_Delete).setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                customDialogClickListener.onPositiveClick();
-//                dismiss();
-//            }
-//        });
-//        findViewById(R.id.jhj_Custom_Dialog_Cancle).setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                customDialogClickListener.onNegativeClick();
-//                dismiss();
-//            }
-//        });
+        findViewById(R.id.jhj_Custom_Dialog_Delete).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                customDialogClickListener.onPositiveClick();
+                dismiss();
+            }
+        });
+        findViewById(R.id.jhj_Custom_Dialog_Cancle).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                customDialogClickListener.onNegativeClick();
+                dismiss();
+            }
+        });
         // -----------------------------------------------------------------------------------------
 
+        TextView textViewName = findViewById(R.id.jhj_Custom_Dialog_Name);
+        TextView textViewDate = findViewById(R.id.jhj_Custom_Dialog_Date);
+        textViewName.setText(name);
+        textViewDate.setText(date);
     }
 }

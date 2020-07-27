@@ -23,7 +23,7 @@ public class FindIdActivity extends AppCompatActivity {
     TextView fMain, tv_dialog3;
     Intent intent;
     String urlAddr, email, phone, returnPhone, newPW;
-    private String centIP = RecipeData.CENIP;
+    String centIP = "192.168.0.148";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
