@@ -26,15 +26,28 @@
         android:orientation="vertical"
         android:layout_gravity="center"
         android:padding="20dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
         <EditText
             android:id="@+id/signUp_email"
-            android:layout_width="match_parent"
+            android:layout_width="0px"
+            android:layout_weight="0.7"
             android:layout_height="wrap_content"
             android:hint=" 이메일을 입력해주세요"
             android:textSize="20dp"
             android:padding="20dp"
             />
-
+            <Button
+                android:id="@+id/signUp_email_btn"
+                android:text="인증하기"
+                android:layout_width="0px"
+                android:layout_height="match_parent"
+                android:layout_weight="0.3"
+                />
+        </LinearLayout>
         <EditText
             android:id="@+id/signUp_pw"
             android:layout_width="match_parent"
@@ -68,6 +81,7 @@
             android:layout_height="wrap_content"
             android:textSize="15dp"
             android:textColor="#BD0000"
+            android:text="이메일 인증을 완료하세요."
             />
        <CheckBox
            android:id="@+id/chb_chk"
