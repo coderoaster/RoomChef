@@ -124,7 +124,8 @@ public class ReviewListFragment extends Fragment {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             connectData();
-                            Toast.makeText(mContext,"삭제되었습니다.",Toast.LENGTH_SHORT);
+                            Toast.makeText(mContext,"삭제되었습니다.",Toast.LENGTH_SHORT).show();
+                            connectGetData();
                             dialog.dismiss();
 
                         }
@@ -132,9 +133,8 @@ public class ReviewListFragment extends Fragment {
                     .setNegativeButton("취소", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
-                            Toast.makeText(mContext,"취소되었습니다.",Toast.LENGTH_SHORT);
+                            Toast.makeText(mContext,"취소되었습니다.",Toast.LENGTH_SHORT).show();
                             dialogInterface.dismiss();
-
                         }
                     })
                     .show();
