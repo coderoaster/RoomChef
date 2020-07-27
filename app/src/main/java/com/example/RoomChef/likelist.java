@@ -14,20 +14,20 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class Fragment2 extends Fragment {
+public class likelist extends Fragment {
 
     String urlAddr ;
-    String centIP = "192.168.0.148";
+    private String centIP = RecipeData.CENIP;
     String email = RecipeData.USERID;
     RecyclerView recyclerView;
     ArrayList<RecipeData> list;
     RecipeRecyclerAdapter adapter;
     Context mcontext;
 
-    public static Fragment2 newInstance() {
-        return new Fragment2();
+    public static likelist newInstance() {
+        return new likelist();
     }
-    public Fragment2(){
+    public likelist(){
 
     }
 

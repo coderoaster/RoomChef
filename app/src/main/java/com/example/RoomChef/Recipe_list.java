@@ -20,7 +20,8 @@ import java.util.ArrayList;
 
 public class Recipe_list extends Fragment {
 
-    String urladdr = "http://192.168.0.148:8080/test/recipe_all.jsp?name=";
+    String urladdr;
+    private String centIP = RecipeData.CENIP;
     ArrayList<RecipeData> list;
     RecipeRecyclerAdapter adapter;
     RecyclerView recyclerView;
@@ -90,9 +91,9 @@ public class Recipe_list extends Fragment {
     private void setList(){
         String search =  RecipeData.SEARCH;
         if (search==null){
-
+            urladdr = "http://"+centIP+":8080/test/recipe_all.jsp?name=";
         }else {
-            urladdr="http://192.168.0.148:8080/test/recipe_all.jsp?name=";
+            urladdr = "http://"+centIP+":8080/test/recipe_all.jsp?name=";
             urladdr = urladdr + search;
             Log.v("search",urladdr);
 

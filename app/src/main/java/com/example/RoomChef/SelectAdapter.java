@@ -25,7 +25,7 @@ public class SelectAdapter extends RecyclerView.Adapter<SelectAdapter.ViewHolder
     private  ArrayList<RecipeData> mdata = null ;
     private  Button likebtn,unlikebtn,reply_insert;
     private  String urlAddr;
-    private  String centIP = "192.168.0.148";
+    private String centIP = RecipeData.CENIP;
     private  String user_email = RecipeData.USERID;
     private  String recipeSeq =null;
     private  String liked;

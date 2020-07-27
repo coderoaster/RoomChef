@@ -9,12 +9,12 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-public class Fragment3 extends Fragment {
+public class reviewlist extends Fragment {
 
-    public static Fragment3 newInstance() {
-        return new Fragment3();
+    public static reviewlist newInstance() {
+        return new reviewlist();
     }
-    public Fragment3(){
+    public reviewlist(){
 
     }
 

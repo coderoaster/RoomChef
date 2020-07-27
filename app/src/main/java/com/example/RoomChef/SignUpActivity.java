@@ -30,7 +30,7 @@ public class SignUpActivity extends AppCompatActivity {
     CheckBox chb_chk;
     Intent intent;
     String email, pw, pw_chk, phone, urlAddr,num;
-    String centIP = "192.168.0.148";
+    private String centIP = RecipeData.CENIP;
     int count = 0;
     Random rnd;
 

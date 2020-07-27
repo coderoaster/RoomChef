@@ -63,14 +63,14 @@ public class Mypage extends Fragment {
                     btn_1.setTextColor(Color.parseColor("#000000"));
                     btn_3.setTextColor(Color.parseColor("#000000"));
                     // getActivity()로 MainActivity의 replaceFragment를 불러옵니다.
-                    ((MainActivity) getActivity()).replaceFragment(Fragment2.newInstance());    // 새로 불러올 Fragment의 Instance를 Main으로 전달
+                    ((MainActivity) getActivity()).replaceFragment(likelist.newInstance());    // 새로 불러올 Fragment의 Instance를 Main으로 전달
                     break;
                 case R.id.btn_3:
                     btn_3.setTextColor(Color.parseColor(strColor));
                     btn_1.setTextColor(Color.parseColor("#000000"));
                     btn_2.setTextColor(Color.parseColor("#000000"));
                     // getActivity()로 MainActivity의 replaceFragment를 불러옵니다.
-                    ((MainActivity) getActivity()).replaceFragment(Fragment3.newInstance());    // 새로 불러올 Fragment의 Instance를 Main으로 전달
+                    ((MainActivity) getActivity()).replaceFragment(reviewlist.newInstance());    // 새로 불러올 Fragment의 Instance를 Main으로 전달
                     break;
             }
         }
