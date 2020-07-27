@@ -1,4 +1,3 @@
-
 package com.example.RoomChef;
 
 import android.content.Context;
@@ -17,43 +16,36 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
+public class likelist extends Fragment {
 
-public class Recipe_list extends Fragment {
-
-    String urladdr;
+    String urlAddr ;
     private String centIP = RecipeData.CENIP;
+    String email = RecipeData.USERID;
+    RecyclerView recyclerView;
     ArrayList<RecipeData> list;
     RecipeRecyclerAdapter adapter;
-    RecyclerView recyclerView;
     Context mcontext;
-    String updateurladdr ;
 
-
-    public Recipe_list(){
-
+    public static likelist newInstance() {
+        return new likelist();
     }
+    public likelist(){
 
-    @Override
-    public void onResume() {
-        super.onResume();
-        setList();
     }
 
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
-        mcontext =context;
+        mcontext=context;
     }
 
+    //Fragment에서 실행될떄 MainActivity//onCreate와 같다고보면됨.
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.activity_recipe_list,container,false);
         recyclerView = rootView.findViewById(R.id.recuocler_list) ;
-        setList();
-
-
-        // 리사이클러뷰에 LinearLayoutManager 객체 지정.
+        connectionInsertData();
 
         recyclerView.setLayoutManager(new LinearLayoutManager(mcontext)) ;
 
@@ -69,50 +61,27 @@ public class Recipe_list extends Fragment {
                 intent.putExtra("seq",list.get(position).getSeq());
                 intent.putExtra("view",list.get(position).getView());
                 startActivity(intent);
-                updateurladdr ="http://192.168.0.148:8080/test/viewUpdate.jsp?seq=";
-                updateurladdr = updateurladdr + list.get(position).getSeq()+"&view="+(Integer.parseInt(list.get(position).getView())+1);
-                Log.v("url",updateurladdr);
+                urlAddr ="http://192.168.0.148:8080/test/viewUpdate.jsp?seq=";
+                urlAddr = urlAddr + list.get(position).getSeq()+"&view="+(Integer.parseInt(list.get(position).getView())+1);
+                Log.v("url",urlAddr);
                 connectionInsertData();
             }
         });
 
-        return rootView;
 
+        return rootView;
     }
     private void connectionInsertData() {
+        urlAddr ="";
+        urlAddr = "http://" + centIP + ":8080/test/like_recipe.jsp?"; // centIP 는 항상 위에
+        urlAddr = urlAddr + "email=" + email;
         try {
-            InsNetworkTask insNetworkTask = new InsNetworkTask(mcontext, updateurladdr);
-            insNetworkTask.execute().get();
+            NetworkTask networkTask = new NetworkTask(mcontext, urlAddr);
+            Object obj = networkTask.execute().get();
+            list = (ArrayList<RecipeData>) obj;
 
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
-    private void setList(){
-        String search =  RecipeData.SEARCH;
-        if (search==null){
-            urladdr = "http://"+centIP+":8080/test/recipe_all.jsp?name=";
-        }else {
-            urladdr = "http://"+centIP+":8080/test/recipe_all.jsp?name=";
-            urladdr = urladdr + search;
-            Log.v("search",urladdr);
-
-        }
-
-
-        try{
-            list = new ArrayList<RecipeData>();
-            NetworkTask networkTask = new NetworkTask(mcontext,urladdr);
-            list = (ArrayList<RecipeData>) networkTask.execute().get();
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-    }
-
-
-}
-
-
-
-
-
+}//-----
