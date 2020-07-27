@@ -91,6 +91,7 @@ public class ReviewListFragment extends Fragment {
 
         connectGetData();
         listView.setOnItemClickListener(onClickListener);
+        listView.setOnItemLongClickListener(onItemLongClickListener);
 //        NetworkTask networkTask = new NetworkTask(mContext, imgurlAddr, imageView);
 //        // 100 바이트씩 읽어와라 (NetworkTask 의 len 변수를 말한다.)
 //        networkTask.execute(100);
@@ -116,21 +117,24 @@ public class ReviewListFragment extends Fragment {
             seq = Integer.toString(data.get(pos).getSeq());
             new AlertDialog.Builder(mContext)
                     .setTitle("후기삭제")
+                    .setMessage("후기를 삭제하시겠습니까?")
                     .setIcon(R.mipmap.ic_launcher)
                     .setCancelable(false)
                     .setPositiveButton("확인", new DialogInterface.OnClickListener() { // 확인누르면 첫페이지로 로그인하러
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             connectData();
-                            dialog.dismiss();
                             Toast.makeText(mContext,"삭제되었습니다.",Toast.LENGTH_SHORT);
+                            dialog.dismiss();
+
                         }
                     })
                     .setNegativeButton("취소", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
-                            dialogInterface.dismiss();
                             Toast.makeText(mContext,"취소되었습니다.",Toast.LENGTH_SHORT);
+                            dialogInterface.dismiss();
+
                         }
                     })
                     .show();
