@@ -1,6 +1,7 @@
 package com.example.RoomChef;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,9 +24,9 @@ import java.util.ArrayList;
 public class SelectAdapter extends RecyclerView.Adapter<SelectAdapter.ViewHolder> {
     private  Context mContext;
     private  ArrayList<RecipeData> mdata = null ;
-    private  Button likebtn,unlikebtn,reply_insert;
+    private  Button likebtn,unlikebtn,reply_insert,reply_list;
     private  String urlAddr;
-    private  String centIP = "192.168.0.148";
+    private String centIP = RecipeData.CENIP;
     private  String user_email = RecipeData.USERID;
     private  String recipeSeq =null;
     private  String liked;
@@ -50,11 +51,16 @@ public class SelectAdapter extends RecyclerView.Adapter<SelectAdapter.ViewHolder
             viewtext = itemView.findViewById(R.id.select_recipe_view);
             unlikebtn = itemView.findViewById(R.id.btn_unlike);
             likebtn = itemView.findViewById(R.id.btn_like);
+            reply_insert= itemView.findViewById(R.id.reply_insert);
+            reply_list=itemView.findViewById(R.id.reply_view);
 
             likebtn.setOnClickListener(onClickListener);
             unlikebtn.setOnClickListener(onClickListener);
+            reply_insert.setOnClickListener(onClickListener);
+            reply_list.setOnClickListener(onClickListener);
         }
         View.OnClickListener onClickListener = new View.OnClickListener() {
+            Intent intent;
             @Override
 
             public void onClick(View view) {
@@ -88,6 +94,17 @@ public class SelectAdapter extends RecyclerView.Adapter<SelectAdapter.ViewHolder
                         urlAddr = urlAddr + "email=" + user_email + "&recipeSeq=" + recipeSeq;// email, recipeSeq 들고 jsp로 슝
                         Log.v("TAG", urlAddr);
                         connectLikeData();
+                        break;
+                    case R.id.reply_insert:
+                        intent = new Intent(mContext,ReviewActivity.class);
+                        intent.putExtra("seq",recipeSeq);
+                        mContext.startActivity(intent);
+                        break;
+                    case R.id.reply_view:
+                        intent = new Intent(mContext,SelectReviewList.class);
+                        intent.putExtra("name",mdata.get(getAdapterPosition()).getName());
+                        intent.putExtra("seq",recipeSeq);
+                        mContext.startActivity(intent);
                         break;
                 }
             }

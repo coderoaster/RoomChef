@@ -7,6 +7,8 @@ import android.os.Handler;
 
 public class SplashScreenActivity extends Activity {
 
+    Intent intent;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -14,9 +16,16 @@ public class SplashScreenActivity extends Activity {
         handler.postDelayed(new Runnable(){
             @Override
             public void run() {
-                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
-                startActivity(intent);
-                finish();
+                if(SharedPreference.getUserName(SplashScreenActivity.this).length() == 0) {
+                    // call Login Activity
+                    intent = new Intent(SplashScreenActivity.this, LoginActivity.class);
+                    startActivity(intent);
+                } else {
+                    // Call Next Activity
+                    intent = new Intent(SplashScreenActivity.this, MainActivity.class);
+                    intent.putExtra("email", SharedPreference.getUserName(SplashScreenActivity.this).toString());
+                    startActivity(intent);
+                }
             }
         },3000); //3초 뒤에 Runner객체 실행하도록 함
     }
