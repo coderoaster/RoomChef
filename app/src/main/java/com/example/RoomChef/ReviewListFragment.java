@@ -1,6 +1,8 @@
 package com.example.RoomChef;
 
+import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -11,16 +13,17 @@ import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
 import java.util.ArrayList;
 
 public class ReviewListFragment extends Fragment {
     ListView listView;
-    TextView tv_title;
     String centIP = RecipeData.CENIP;
     String urlAddr;
     String email = RecipeData.USERID;
@@ -29,7 +32,6 @@ public class ReviewListFragment extends Fragment {
     reviewAdapter adapter;
     String imgurlAddr ="http://192.168.0.148:8080/test2/imgs/";
     ImageView imageView;
-    String imagename;
     String seq;
 
 
@@ -108,6 +110,34 @@ public class ReviewListFragment extends Fragment {
             startActivity(intent);
         }
     };
+    ListView.OnItemLongClickListener onItemLongClickListener = new AdapterView.OnItemLongClickListener() {
+        @Override
+        public boolean onItemLongClick(AdapterView<?> adapterView, View view, int pos, long l) {
+            seq = Integer.toString(data.get(pos).getSeq());
+            new AlertDialog.Builder(mContext)
+                    .setTitle("후기삭제")
+                    .setIcon(R.mipmap.ic_launcher)
+                    .setCancelable(false)
+                    .setPositiveButton("확인", new DialogInterface.OnClickListener() { // 확인누르면 첫페이지로 로그인하러
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            connectData();
+                            dialog.dismiss();
+                            Toast.makeText(mContext,"삭제되었습니다.",Toast.LENGTH_SHORT);
+                        }
+                    })
+                    .setNegativeButton("취소", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            dialogInterface.dismiss();
+                            Toast.makeText(mContext,"취소되었습니다.",Toast.LENGTH_SHORT);
+                        }
+                    })
+                    .show();
+
+            return true;
+        }
+    };
 
     protected void connectGetData() { // 리스트 불러오기
         try {
@@ -124,6 +154,18 @@ public class ReviewListFragment extends Fragment {
             adapter = new reviewAdapter(mContext, R.layout.reviewlistview, data);
             listView.setAdapter(adapter);
 
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    private void connectData() {
+        try {
+
+            urlAddr = "http://" + centIP + ":8080/test/Delete_review.jsp?";
+            urlAddr = urlAddr + "seq=" + seq;
+            Log.v("urlAddr",urlAddr);
+            InsNetworkTask insertNetworkTask = new InsNetworkTask(mContext, urlAddr);
+            insertNetworkTask.execute().get();
         } catch (Exception e) {
             e.printStackTrace();
         }

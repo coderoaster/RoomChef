@@ -6,8 +6,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-
+    <TextView
+        android:layout_margin="10dp"
+        android:id="@+id/review_recipe_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textSize="30dp"
+        />
     <ListView
+        android:layout_margin="10dp"
         android:id="@+id/lv_review"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

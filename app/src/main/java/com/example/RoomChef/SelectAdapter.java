@@ -102,6 +102,7 @@ public class SelectAdapter extends RecyclerView.Adapter<SelectAdapter.ViewHolder
                         break;
                     case R.id.reply_view:
                         intent = new Intent(mContext,SelectReviewList.class);
+                        intent.putExtra("name",mdata.get(getAdapterPosition()).getName());
                         intent.putExtra("seq",recipeSeq);
                         mContext.startActivity(intent);
                         break;
