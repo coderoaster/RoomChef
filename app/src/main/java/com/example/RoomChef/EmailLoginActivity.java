@@ -22,7 +22,7 @@ public class EmailLoginActivity extends AppCompatActivity {
     String email, pw, urlAddr;
     Intent intent;
     String returnpwd = "";
-    String centIP = "192.168.0.148";
+    private String centIP = RecipeData.CENIP;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

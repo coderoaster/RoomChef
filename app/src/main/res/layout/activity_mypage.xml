@@ -22,7 +22,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="내 냉장고"/>
+            android:text="내 좋아요"/>
 
         <Button
             android:background="#00FF0000"
@@ -30,7 +30,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="내 좋아요"/>
+            android:text="내 후기"/>
 
         <Button
             android:background="#00FF0000"
@@ -38,7 +38,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="내 후기"/>
+            android:text="회원정보"/>
 
     </LinearLayout>
     <FrameLayout
