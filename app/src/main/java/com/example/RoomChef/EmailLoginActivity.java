@@ -2,6 +2,7 @@ package com.example.RoomChef;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -92,6 +93,8 @@ public class EmailLoginActivity extends AppCompatActivity {
                             public void onClick(DialogInterface dialogInterface, int i) { // 확인누르면 로그인한 이메일들고 메인페이지로(아직안만들어서 첫페이지)
                                 intent = new Intent(EmailLoginActivity.this, MainActivity.class);
                                 intent.putExtra("email", email);
+                                SharedPreference sharedPreference= new SharedPreference();
+                                sharedPreference.setUserName(EmailLoginActivity.this, email);
                                 startActivity(intent);
                             }
                         })

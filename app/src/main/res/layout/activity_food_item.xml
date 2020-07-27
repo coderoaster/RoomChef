@@ -7,6 +7,7 @@
     android:layout_height="match_parent"
     tools:context=".SelectFood">
     <LinearLayout
+        android:layout_margin="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
@@ -58,6 +59,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
+            android:layout_margin="10dp"
             >
             <ImageView
                 android:id="@+id/select_recipe_img"
@@ -70,29 +72,34 @@
                 android:layout_height="wrap_content"
                 android:textSize="20dp"
                 android:text="  식재료"
+                android:padding="5dp"
                 />
             <TextView
                 android:id="@+id/select_recipe_food"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="20dp"
+                android:padding="5dp"
                 />
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="20dp"
                 android:text="  조리법"
+                android:padding="5dp"
                 />
             <TextView
                 android:id="@+id/select_recipe_how"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="20dp"
+                android:padding="5dp"
                 />
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
+                android:layout_margin="10dp"
                 >
                 <Button
                     android:id="@+id/reply_insert"
