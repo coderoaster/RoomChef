@@ -28,11 +28,11 @@ public class reviewNetworkTask extends AsyncTask<Integer, String, Object> {
 
     @Override
     protected void onPreExecute() {
-        progressDialog = new ProgressDialog(context);
-        progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-        progressDialog.setTitle("Dialog");
-        progressDialog.setMessage("Get ....");
-        progressDialog.show();
+//        progressDialog = new ProgressDialog(context);
+//        progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+//        progressDialog.setTitle("Dialog");
+//        progressDialog.setMessage("Get ....");
+//        progressDialog.show();
     }
 
     @Override
@@ -43,7 +43,7 @@ public class reviewNetworkTask extends AsyncTask<Integer, String, Object> {
     @Override
     protected void onPostExecute(Object o) {
         super.onPostExecute(o);
-        progressDialog.dismiss();
+//        progressDialog.dismiss();
     }
 
     @Override

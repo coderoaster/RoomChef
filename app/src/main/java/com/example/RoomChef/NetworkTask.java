@@ -31,11 +31,11 @@ public class NetworkTask extends AsyncTask<Integer,String,Object> {
     // 데이터를 받고있을때
     @Override
     protected void onPreExecute() {
-        progressDialog = new ProgressDialog(context);
-        progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-        progressDialog.setTitle("Dialogue()");
-        progressDialog.setMessage("down.....");
-        progressDialog.show();
+//        progressDialog = new ProgressDialog(context);
+//        progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+//        progressDialog.setTitle("Dialogue()");
+//        progressDialog.setMessage("down.....");
+//        progressDialog.show();
     }
 
     // 데이터가 바뀌엇을때
@@ -49,7 +49,7 @@ public class NetworkTask extends AsyncTask<Integer,String,Object> {
     @Override
     protected void onPostExecute(Object o) {
         super.onPostExecute(o);
-        progressDialog.dismiss();
+//        progressDialog.dismiss();
     }
 
     @Override

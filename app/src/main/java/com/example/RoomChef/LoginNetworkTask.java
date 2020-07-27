@@ -26,11 +26,11 @@ public class LoginNetworkTask extends AsyncTask<Integer, String , Object> {
 
     @Override
     protected void onPreExecute() {
-        progressDialog = new ProgressDialog(context);
-        progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-        progressDialog.setTitle("Dialog");
-        progressDialog.setMessage("Loading .....");
-        progressDialog.show();
+//        progressDialog = new ProgressDialog(context);
+//        progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+//        progressDialog.setTitle("Dialog");
+//        progressDialog.setMessage("Loading .....");
+//        progressDialog.show();
     }
 
     @Override
@@ -42,7 +42,7 @@ public class LoginNetworkTask extends AsyncTask<Integer, String , Object> {
     @Override
     protected void onPostExecute(Object o) {
         super.onPostExecute(o);
-        progressDialog.dismiss();
+//        progressDialog.dismiss();
     }
 
     @Override

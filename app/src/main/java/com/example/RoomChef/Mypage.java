@@ -37,7 +37,7 @@ public class Mypage extends Fragment {
         btn_2 = rootView.findViewById(R.id.btn_2);
         btn_3 = rootView.findViewById(R.id.btn_3);
 
-        ((MainActivity) getActivity()).replaceFragment(ingredientFragment.newInstance());
+        ((MainActivity) getActivity()).replaceFragment(likelist.newInstance());
         btn_1.setTextColor(Color.parseColor(strColor));
 
         btn_1.setOnClickListener(onClickListener);
