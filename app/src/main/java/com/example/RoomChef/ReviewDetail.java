@@ -50,7 +50,7 @@ public class ReviewDetail extends AppCompatActivity {
     protected void connectGetData() { // 상세페이지 불러오기
         try {
 
-            urlAddr = "http://" + centIP + ":8080/Test/click_review.jsp?";
+            urlAddr = "http://" + centIP + ":8080/test/click_review.jsp?";
             urlAddr = urlAddr + "&seq=" + seq;
 
             Log.v("urlAddr",urlAddr);

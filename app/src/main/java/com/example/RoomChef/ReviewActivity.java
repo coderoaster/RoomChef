@@ -64,7 +64,7 @@ public class ReviewActivity extends AppCompatActivity {
                 case R.id.btn_insert:
                     urlAddr = "";
                     centIP = "192.168.2.15";
-                    urlAddr = "http://" + centIP + ":8080/Test/review_insert.jsp?";
+                    urlAddr = "http://" + centIP + ":8080/test/review_insert.jsp?";
                     review = ed_review.getText().toString();
                     title = ed_title.getText().toString();
                     if(title.length() == 0 || review.length() == 0 ){
