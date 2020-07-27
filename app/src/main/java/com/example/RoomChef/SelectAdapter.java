@@ -55,6 +55,7 @@ public class SelectAdapter extends RecyclerView.Adapter<SelectAdapter.ViewHolder
 
             likebtn.setOnClickListener(onClickListener);
             unlikebtn.setOnClickListener(onClickListener);
+            reply_insert.setOnClickListener(onClickListener);
         }
         View.OnClickListener onClickListener = new View.OnClickListener() {
             @Override
@@ -92,8 +93,8 @@ public class SelectAdapter extends RecyclerView.Adapter<SelectAdapter.ViewHolder
                         connectLikeData();
                         break;
                     case R.id.reply_insert:
-                        Intent intent = new Intent(view.getContext(),ReviewActivity.class);
-                        view.getContext().startActivity(intent);
+                        Intent intent = new Intent(mContext,ReviewActivity.class);
+                        mContext.startActivity(intent);
                         break;
                 }
             }
